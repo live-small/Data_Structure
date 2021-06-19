@@ -3,7 +3,7 @@
 #include <time.h>
 #include <string.h>
 
-// µ¥ÀÌÅÍ ¹Ù²Ù±â
+// ë°ì´í„° ë°”ê¾¸ê¸°
 void swap(int a[], int b, int c)
 {
     int temp = a[b];
@@ -11,7 +11,7 @@ void swap(int a[], int b, int c)
     a[c] = temp;
 };
 
-// µ¥ÀÌÅÍ »ğÀÔ
+// ë°ì´í„° ì‚½ì…
 int *InsertData(int *arr, int size, char *command)
 {
     srand((unsigned)time(NULL));
@@ -32,7 +32,7 @@ int *InsertData(int *arr, int size, char *command)
     return arr;
 }
 
-// - Á¤·Ä¾Ë°í¸®Áò
+// - ì •ë ¬ì•Œê³ ë¦¬ì¦˜
 // 1. bubble sort
 void bubbleSort(int a[], int n)
 {
@@ -213,7 +213,7 @@ void RquickSort(int a[], int left, int right)
     }
 }
 
-// (0) Á¤·Ä ¾Ë°í¸®Áò Á¤È®¼º Ã¼Å©
+// (0) ì •ë ¬ ì•Œê³ ë¦¬ì¦˜ ì •í™•ì„± ì²´í¬
 void checkSort(int size)
 {
     int *arr1 = (int *)malloc(sizeof(int) * size);
@@ -272,7 +272,7 @@ void checkSort(int size)
     free(temp);
 }
 
-// (1) Á¤·Ä¾Ë°í¸®Áò ½Ã°£ÃøÁ¤
+// (1) ì •ë ¬ì•Œê³ ë¦¬ì¦˜ ì‹œê°„ì¸¡ì •
 void DataSort(int size, char *numOfQuestion)
 {
     int *arr1 = (int *)malloc(sizeof(int) * size);
@@ -346,16 +346,16 @@ void DataSort(int size, char *numOfQuestion)
 
 int main(void)
 {
-    // (0) Á¤·Ä ¾Ë°í¸®Áò Á¤È®¼º Ã¼Å©(arr size = 30)
+    // (0) ì •ë ¬ ì•Œê³ ë¦¬ì¦˜ ì •í™•ì„± ì²´í¬(arr size = 30)
     checkSort(30);
 
-    // (1) ·£´ıµ¥ÀÌÅÍ, Á¤·Ä ¼öÇà½Ã°£ ÃøÁ¤
+    // (1) ëœë¤ë°ì´í„°, ì •ë ¬ ìˆ˜í–‰ì‹œê°„ ì¸¡ì •
     for (int i = 10000; i <= 10000 * 10; i += 10000)
     {
         DataSort(i, "(1)");
     };
 
-    // (2) Á¤·ÄµÈ µ¥ÀÌÅÍ, Á¤·Ä ¼öÇà½Ã°£ ÃøÁ¤
+    // (2) ì •ë ¬ëœ ë°ì´í„°, ì •ë ¬ ìˆ˜í–‰ì‹œê°„ ì¸¡ì •
     for (int i = 10000; i <= 10000 * 10; i += 10000)
     {
         DataSort(i, "(2)");
@@ -364,14 +364,14 @@ int main(void)
     return 0;
 }
 
-// ?
-// 1. merge, quick ·£´ı µ¥ÀÌÅÍ¸¦ ¹ŞÀ» °æ¿ì, µÑ ´Ù O(logn)ÀÌÁö¸¸ quickÀÌ ±Ù¼ÒÇÏ°Ô ´õ ºü¸£´Ù
-// ÀÌÀ¯ ? merge sort´Â in-place Á¤·ÄÀÌ ¾Æ´Ï¶ó Ãß°¡ °ø°£À» ÇÊ¿ä·Î ÇÏ¸ç, ÀÌ¿¡ µû¸¥ Ãß°¡ ¿¬»êÀÌ ¼öÇàµÇ±â¿¡
+// âœ¨ ì •ë¦¬
+// 1. merge, quick ëœë¤ ë°ì´í„°ë¥¼ ë°›ì„ ê²½ìš°, ë‘˜ ë‹¤ O(nlogn)ì´ì§€ë§Œ quickì´ ê·¼ì†Œí•˜ê²Œ ë” ë¹ ë¥´ë‹¤
+// ì´ìœ  ? merge sortëŠ” in-place ì •ë ¬ì´ ì•„ë‹ˆë¼ ì¶”ê°€ ê³µê°„ì„ í•„ìš”ë¡œ í•˜ë©°, ì´ì— ë”°ë¥¸ ì¶”ê°€ ì—°ì‚°ì´ ìˆ˜í–‰ë˜ê¸°ì—
 
-// 2.ÇÏÁö¸¸ quickÀº Á¤·Ä µ¥ÀÌÅÍ¸¦ ¹ŞÀ» °æ¿ì, O(n2)À» ³ªÅ¸³½´Ù.
-// ±Ùµ¥ ¿Ö Çö½Ç¿¡¼± quick sort¸¦ ¸¹ÀÌ ÀÌ¿ëÇÒ±î?
-// Á¤·ÄÀÇ °úÁ¤À» °ÅÄ¡Áö ¾Ê¾Æµµ, ÁÁÀº ¼º´ÉÀ» ³»±â ¶§¹®.
+// 2.í•˜ì§€ë§Œ quickì€ ì •ë ¬ ë°ì´í„°ë¥¼ ë°›ì„ ê²½ìš°, O(n2)ì„ ë‚˜íƒ€ë‚¸ë‹¤.
+// ê·¼ë° ì™œ í˜„ì‹¤ì—ì„  quick sortë¥¼ ë§ì´ ì´ìš©í• ê¹Œ?
+// ì •ë ¬ì˜ ê³¼ì •ì„ ê±°ì¹˜ì§€ ì•Šì•„ë„, ì¢‹ì€ ì„±ëŠ¥ì„ ë‚´ê¸° ë•Œë¬¸.
 
-// ?¡¡
-// heap sortµµ ±¸ÇöÇØ¼­ ÃøÁ¤ÇØº¸±â **
-// ¿¹»ó ? heapify ÇÏ´Â ¿¬»ê¶§¹®¿¡ quickº¸´Ü ´À¸± °ÍÀ¸·Î »ı°¢.
+// ì¶”ê°€ì‹¤í—˜**
+// heap sortë„ êµ¬í˜„í•´ì„œ ì¸¡ì •í•´ë³´ê¸°
+// ì˜ˆìƒ ? heapify í•˜ëŠ” ì—°ì‚°ë•Œë¬¸ì— quickë³´ë‹¨ ëŠë¦´ ê²ƒìœ¼ë¡œ ìƒê°.
