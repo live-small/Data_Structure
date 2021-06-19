@@ -6,7 +6,7 @@
 
 
 
-## content
+## Contents
 #### 1. sorting; 시간 복잡도 O(nlogn)을 가지는 merge와 quick 중, 누가 더 빠를까? 
 
 #### 2. BST vs BBST(AVL); 가질 수 있는 값의 제한 vs 값에 트리 높이까지 제한 
