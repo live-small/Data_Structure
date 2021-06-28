@@ -12,7 +12,7 @@ typedef struct BSTNode
 } BSTNode;
 
 // 1. search
-// Æò±Õ logN, ÆíÇâÆ®¸®¸é O(n)
+// í‰ê·  logN, í¸í–¥íŠ¸ë¦¬ë©´ O(n)
 BSTNode *findInBST(BSTNode *root, int data)
 {
     if (root == NULL)
@@ -54,8 +54,8 @@ BSTNode *find(BSTNode *root, int data)
 }
 
 // 2. insert
-// Æò±Õ logN, ÃÖ¾Ç O(n)-ÆíÇâÆ®¸®
-// À§Ä¡Àâ±â -> Æ®¸® ³ôÀÌ¸¸Å­
+// í‰ê·  logN, ìµœì•… O(n)-í¸í–¥íŠ¸ë¦¬
+// ìœ„ì¹˜ì¡ê¸° -> íŠ¸ë¦¬ ë†’ì´ë§Œí¼
 BSTNode *bstInsert(BSTNode *root, int data)
 {
     if (!root)
@@ -97,7 +97,7 @@ BSTNode *FindMax(BSTNode *root)
 };
 
 // 3. Delete
-// Æò±Õ logN, ÃÖ¾Ç O(n)
+// í‰ê·  logN, ìµœì•… O(n)
 BSTNode *Delete(BSTNode *root, int data)
 {
     BSTNode *temp;
@@ -147,7 +147,7 @@ typedef struct AVLTreeNode
     int height;
 } AVLTreeNode;
 
-// º¸Á¶¿¬»ê - ³ôÀÌ±¸ÇÏ±â, ÃÖ´ë°ª, ÃÖ¼Ò°ª
+// ë³´ì¡°ì—°ì‚° - ë†’ì´êµ¬í•˜ê¸°, ìµœëŒ€ê°’, ìµœì†Œê°’
 int height(AVLTreeNode *root)
 {
     if (root == NULL)
@@ -167,10 +167,10 @@ int min(int a, int b)
     return a < b ? a : b;
 }
 
-// È¸Àü ; O(1)
-// - ´Ü¼øÈ¸Àü
+// íšŒì „ ; O(1)
+// - ë‹¨ìˆœíšŒì „
 AVLTreeNode *SingleRotateLeft(AVLTreeNode *target)
-{ // À§¹İµÈ ³ëµå(target)
+{ // ìœ„ë°˜ëœ ë…¸ë“œ(target)
     AVLTreeNode *temp = target->left;
     target->left = temp->right;
     temp->right = target;
@@ -189,7 +189,7 @@ AVLTreeNode *SingleRotateRight(AVLTreeNode *target)
     return temp;
 }
 
-// - ÀÌÁßÈ¸Àü
+// - ì´ì¤‘íšŒì „
 AVLTreeNode *RotateLeftRight(AVLTreeNode *target)
 {
     target->left = SingleRotateRight(target->left);
@@ -277,7 +277,7 @@ AVLTreeNode *findInAVL(AVLTreeNode *root, int data)
     return NULL;
 }
 
-// ¸Ş¸ğ¸® ÇÒ´ç ÇØÁ¦
+// ë©”ëª¨ë¦¬ í• ë‹¹ í•´ì œ
 void *freeBST(BSTNode *root)
 {
     if (root)
@@ -300,7 +300,7 @@ void *freeAVL(AVLTreeNode *root)
     return NULL;
 }
 
-// ¹İº¹¼öÇà
+// ë°˜ë³µìˆ˜í–‰
 BSTNode *BSTRepeat(BSTNode *rootBST, int numOfRepeat, char *command)
 {
     int random;
@@ -367,7 +367,7 @@ int main(void)
     AVLTreeNode *rootAVL = NULL;
     clock_t start, end;
 
-    // (1) ·£´ıµ¥ÀÌÅÍ »ğÀÔ, 1È¸ ¼öÇà½Ã°£(½Ê¸¸)
+    // (1) ëœë¤ë°ì´í„° ì‚½ì…, 1íšŒ ìˆ˜í–‰ì‹œê°„(ì‹­ë§Œ)
     // - BST
     start = clock();
     rootBST = BSTRepeat(rootBST, numOfRepeat, "insert");
@@ -382,7 +382,7 @@ int main(void)
     printf("AVL, random data insert time: %.5f\n", (float)(end - start) / numOfRepeat);
     rootAVL = freeAVL(rootAVL);
 
-    // (1) ·£´ıµ¥ÀÌÅÍ »ğÀÔ, find 1È¸ ¼öÇà½Ã°£ (½Ê¸¸~¹é¸¸)
+    // (1) ëœë¤ë°ì´í„° ì‚½ì…, find 1íšŒ ìˆ˜í–‰ì‹œê°„ (ì‹­ë§Œ~ë°±ë§Œ)
     // - BST
     for (int i = numOfRepeat; i <= numOfRepeat * 10; i += numOfRepeat)
     {
@@ -407,7 +407,7 @@ int main(void)
     }
 
     printf("\n");
-    // (2) Á¤·Äµ¥ÀÌÅÍ »ğÀÔ, 1È¸ ¼öÇà½Ã°£(Ãµ)
+    // (2) ì •ë ¬ë°ì´í„° ì‚½ì…, 1íšŒ ìˆ˜í–‰ì‹œê°„(ì²œ)
     // - BST
     start = clock();
     rootBST = BSTRepeat(rootBST, 1000, "project6-(2)");
@@ -422,7 +422,7 @@ int main(void)
     printf("AVL, insert time: %.5f\n", (float)(end - start) / 1000);
     rootAVL = freeAVL(rootAVL);
 
-    // (2) Á¤·Äµ¥ÀÌÅÍ »ğÀÔ, find 1È¸ ¼öÇà½Ã°£(Ãµ~¿ÀÃµ)
+    // (2) ì •ë ¬ë°ì´í„° ì‚½ì…, find 1íšŒ ìˆ˜í–‰ì‹œê°„(ì²œ~ì˜¤ì²œ)
     // - BST
     for (int i = 1000; i <= 5000; i += 1000)
     {
@@ -449,24 +449,23 @@ int main(void)
     return 0;
 }
 
-// ¼öÇà½Ã°£ ºñ±³
-// - input: random data(=Æò±ÕÀÇ °æ¿ì¶ó °¡Á¤)
-// 1) insert: BST < AVL  *BST°¡ Àû°Ô°É¸²
-// BST, AVL µÑ ´Ù, ¼öÇà½Ã°£Àº Æ®¸®ÀÇ ³ôÀÌ¿Í ºñ·ÊÇÏÁö¸¸,
-// AVLÀº Æ®¸® ³ôÀÌ º¸ÀåÀ» À§ÇÑ Ãß°¡ ¿¬»êÀ» ¼öÇàÇÏ±â¿¡,
-// BST°¡ ±Ù¼ÒÇÏ°Ô ºü¸£´Ù.
+// ìˆ˜í–‰ì‹œê°„ ë¹„êµ
+// - input: random data(=í‰ê· ì˜ ê²½ìš°ë¼ ê°€ì •)
+// 1) insert: BST < AVL  *BSTê°€ ì ê²Œê±¸ë¦¼
+// BST, AVL ë‘˜ ë‹¤, ìˆ˜í–‰ì‹œê°„ì€ íŠ¸ë¦¬ì˜ ë†’ì´ì™€ ë¹„ë¡€í•˜ì§€ë§Œ,
+// AVLì€ íŠ¸ë¦¬ ë†’ì´ ë³´ì¥ì„ ìœ„í•œ ì¶”ê°€ ì—°ì‚°ì„ ìˆ˜í–‰í•˜ê¸°ì—,
+// BSTê°€ ê·¼ì†Œí•˜ê²Œ ë¹ ë¥´ë‹¤.
 
 // 2) find: AVL < BST
-// Æ®¸®ÀÇ ³ôÀÌ¸¦ lognÀ¸·Î º¸ÀåÇÏ´Â AVLÀÌ ´õºü¸£´Ù
-// BST´Â »ğÀÔµÈ µ¥ÀÌÅÍÀÇ °ª°ú ¼ø¼­¿¡ µû¶ó °¡Àå ÃÖ¼±ÀÏ ¶§, AVL°ú ¼öÇà½Ã°£ÀÌ ºñ½ÁÇÔ.
+// íŠ¸ë¦¬ì˜ ë†’ì´ë¥¼ lognìœ¼ë¡œ ë³´ì¥í•˜ëŠ” AVLì´ ë”ë¹ ë¥´ë‹¤
+// BSTëŠ” ì‚½ì…ëœ ë°ì´í„°ì˜ ê°’ê³¼ ìˆœì„œì— ë”°ë¼ ê°€ì¥ ìµœì„ ì¼ ë•Œ, AVLê³¼ ìˆ˜í–‰ì‹œê°„ì´ ë¹„ìŠ·í•¨.
 
 // - input: sorting data
 // 1) insert: AVL < BST
 // 2) find : AVL < BST
-// BST´Â ÆíÇâÆ®¸®·Î, O(n) ¼öÇà
-// AVLÀº Æ®¸® ³ôÀÌ º¸ÀåÀ» À§ÇÑ Ãß°¡¿¬»ê(´Ü¼øÈ¸Àü, ÀÌÁßÈ¸Àü, ³ôÀÌ ¾÷µ¥ÀÌÆ®)¿¡ ÀÇÇØ O(logn) °É¸²
+// BSTëŠ” í¸í–¥íŠ¸ë¦¬ë¡œ, O(n) ìˆ˜í–‰
+// AVLì€ íŠ¸ë¦¬ ë†’ì´ ë³´ì¥ì„ ìœ„í•œ ì¶”ê°€ì—°ì‚°(ë‹¨ìˆœíšŒì „, ì´ì¤‘íšŒì „, ë†’ì´ ì—…ë°ì´íŠ¸)ì— ì˜í•´ O(logn) ê±¸ë¦¼
 
-// [Á¤¸®]**
-// Æ®¸® ³ôÀÌ Á¦ÇÑ Á¶°ÇÀ» ¸ÂÃß±â À§ÇØ, Ãß°¡ ¿¬»êÀÌ ¼öÇàµÇÁö¸¸
-// ¸¹Àº ¾çÀÇ µ¥ÀÌÅÍ¸¦ ´Ù·ç´Â °æ¿ì(´ëºÎºĞ),
-// Æ®¸® ³ôÀÌ Á¦ÇÑÀÌ ½Ã°£º¹Àâµµ¿¡ ¾ó¸¶³ª Å« ¿µÇâÀ» ¹ÌÄ¡´ÂÁö Á÷Á¢ È®ÀÎÇÒ ¼ö ÀÖ¾ú´Ù
+// [ì •ë¦¬]**
+// 1) íŠ¸ë¦¬ ë†’ì´ ì œí•œ ì¡°ê±´ì„ ë§ì¶”ê¸° ìœ„í•´, ì¶”ê°€ ì—°ì‚°ì´ ìˆ˜í–‰ë˜ì§€ë§Œ ë” ì§§ì€ ì‹œê°„ë³µì¡ë„ë¥¼ ê°€ì§„ë‹¤. 
+// 2) ë‹¤ë£¨ëŠ” ë°ì´í„°ì˜ ì–‘ì´ ë§ì„ìˆ˜ë¡, íŠ¸ë¦¬ ë†’ì´ ì œí•œì´ ì‹œê°„ë³µì¡ë„ì— ì–¼ë§ˆë‚˜ í° ì˜í–¥ì„ ë¯¸ì¹˜ëŠ”ì§€ ì§ì ‘ í™•ì¸í•  ìˆ˜ ìˆì—ˆë‹¤
